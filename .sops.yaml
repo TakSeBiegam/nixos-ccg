@@ -1,0 +1,35 @@
+keys:
+  - &kamil_matysiewicz C45AA10653B30E716C580A6C17E06E2450BBC4FF
+  - &nas age1dlvdkfyjmav6kkr44ut42r9gat7nzrkjqlgc95w5zw98hgckyeksnwqn7w
+  - &yoga age1u3dcefzqsp4nt3yazldq7ea8wah9a7p02cjme76za5xx9ss08qdsz6yc3p
+  - &lxgaming age1stwrjee47q2ccknk20smzjuxc7pmmy9xer7j8jctahkncr9uv44svqzp5r
+  - &pink-beautik age19sfc7yw7pxz0yn8gqa552k2jm5nj8uauwrt2lhs9hp9mg7q625jspw40ln
+creation_rules:
+  - path_regex: "^home/dennor/.*"
+    key_groups:
+      - pgp:
+          - *kamil_matysiewicz
+  - path_regex: "^devices/yoga/.*"
+    key_groups:
+      - pgp:
+          - *kamil_matysiewicz
+        age:
+          - *yoga
+  - path_regex: "^devices/lxgaming/.*"
+    key_groups:
+      - pgp:
+          - *kamil_matysiewicz
+        age:
+          - *lxgaming
+  - path_regex: "^devices/nas/.*"
+    key_groups:
+      - pgp:
+          - *kamil_matysiewicz
+        age:
+          - *nas
+  - path_regex: "^devices/pink-beautik/.*"
+    key_groups:
+      - pgp:
+          - *kamil_matysiewicz
+        age:
+          - *pink-beautik
