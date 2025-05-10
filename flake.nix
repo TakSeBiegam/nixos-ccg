@@ -71,15 +71,6 @@
             nixpkgs.lib.nixosSystem
             ({system = "aarch64-linux";} // interactiveIso);
         };
-        flakeModules = with builtins;
-          listToAttrs (
-            map
-            (fn: {
-              name = nixpkgs.lib.strings.removeSuffix ".nix" fn;
-              value = ./flakemodules/${fn};
-            })
-            (attrNames (readDir ./flakemodules))
-          );
       };
     });
 }

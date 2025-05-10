@@ -46,5 +46,4 @@
       ];
     };
   };
-  time.timeZone = "Europe/Warsaw";
 }
