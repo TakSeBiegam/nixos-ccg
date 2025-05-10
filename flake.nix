@@ -30,7 +30,7 @@
       in [
         server.device
       ];
-      systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin"];
+      systems = ["x86_64-linux"];
       perSystem = {
         config,
         self',
@@ -54,23 +54,6 @@
           };
         };
         formatter = pkgs.alejandra;
-      };
-      flake = {
-        nixosConfigurations = let
-          interactiveIso = {
-            modules = [
-              "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-new-kernel-no-zfs.nix"
-              (import ./modules/installation.nix {inherit self;})
-            ];
-          };
-        in {
-          interactiveIso-x86_64 =
-            nixpkgs.lib.nixosSystem
-            ({system = "x86_64-linux";} // interactiveIso);
-          interactiveIso-aarch64 =
-            nixpkgs.lib.nixosSystem
-            ({system = "aarch64-linux";} // interactiveIso);
-        };
       };
     });
 }

@@ -3,7 +3,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_61976768";
+        device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_62000546";
         content = {
           type = "gpt";
           partitions = {

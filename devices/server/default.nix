@@ -38,6 +38,9 @@ in {
 
           ## GC and store optimization
           ../../modules/hygiene.nix
+
+          ## Nginx
+          ../../modules/nginx.nix
         ];
       };
     };
