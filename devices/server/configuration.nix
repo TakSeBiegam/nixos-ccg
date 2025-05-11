@@ -14,6 +14,7 @@
     };
   };
   system.stateVersion = "24.11";
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
   networking = {
     useDHCP = true;
     hostName = "server";

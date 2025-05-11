@@ -41,6 +41,15 @@ in {
 
           ## Nginx
           ../../modules/nginx.nix
+
+          ## Node 22
+          ../../modules/nodejs_22.nix
+
+          ## Git
+          ../../modules/git.nix
+
+          ## Apps
+          ../../apps/projects.nix
         ];
       };
     };
