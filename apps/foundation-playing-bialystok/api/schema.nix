@@ -1,16 +1,11 @@
 { pkgs, ... }:
 
 let
-  repoUrl = "git@github.com:TakSeBiegam/foundation-playing-bialystok-backend.git";
-  projectPath = "/apps/foundation-playing-bialystok/api";
+  
+  repoUrl = "https://github.com/TakSeBiegam/foundation-playing-bialystok-backend.git";
+  projectPath = "/home/apiuser/apps/foundation-playing-bialystok/api";
 in
 {
-  users.users.apiuser = {
-    isNormalUser = true;
-    home = "/home/apiuser";
-    group = "users";
-  };
-
   systemd.services.clone-playground-api = {
     description = "Clone API repo";
     wantedBy = [ "multi-user.target" ];
@@ -27,9 +22,13 @@ in
     description = "Run Playground API";
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" "clone-playground-api.service" ];
+    environment = {
+      PATH = "${pkgs.bash}/bin:${pkgs.coreutils}/bin:${pkgs.nodejs}/bin";
+    };
     serviceConfig = {
       WorkingDirectory = projectPath;
-      ExecStart = "${pkgs.nodejs}/bin/node index.js";
+      ExecStartPre = "${pkgs.bash}/bin/bash -c '${pkgs.nodejs}/bin/npm install && ${pkgs.nodejs}/bin/npm run build'";
+      ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.nodejs}/bin/npm run start'";
       Restart = "always";
       User = "apiuser";
     };

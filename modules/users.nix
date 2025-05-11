@@ -25,6 +25,13 @@
         autoSubUidGidRange = true;
         shell = pkgs.zsh;
       };
+      apiuser = {
+        isNormalUser = true;
+        home = "/home/apiuser";
+        createHome = true;
+        description = "User for handle all running apps (prevent running as root)";
+        group = "users";
+      };
     };
   };
 }

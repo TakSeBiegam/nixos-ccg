@@ -17,6 +17,6 @@
 
   security.acme = {
     acceptTerms = true;
-    email = "contact@gamescutter.com";
+    defaults.email = "contact@gamescutter.com";
   };
 }
